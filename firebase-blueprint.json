@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "Book": {
+      "title": "Book",
+      "description": "Library book inventory document.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "category": { "type": "string" },
+        "quantity": { "type": "integer" },
+        "available": { "type": "integer" },
+        "coverUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "author", "category", "quantity", "available"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Registered library student user.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "membershipDate": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "email", "phone", "membershipDate", "status"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Book classification category.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Notice": {
+      "title": "Notice",
+      "description": "Library announcement board notice bulletin.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "priority": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "description", "priority", "status"]
+    },
+    "IssuedBook": {
+      "title": "IssuedBook",
+      "description": "Active and historical book issuance record.",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "bookId": { "type": "string" },
+        "bookTitle": { "type": "string" },
+        "issueDate": { "type": "string" },
+        "returnDate": { "type": "string" },
+        "status": { "type": "string" },
+        "remarks": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["studentId", "studentName", "bookId", "bookTitle", "issueDate", "returnDate", "status"]
+    },
+    "Activity": {
+      "title": "Activity",
+      "description": "System event audit log activity record.",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["type", "text", "timestamp"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Administrator details.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["name", "email"]
+    }
+  },
+  "firestore": {
+    "/books/{bookId}": {
+      "schema": { "$ref": "#/entities/Book" },
+      "description": "Collection of all books in library stock."
+    },
+    "/students/{studentId}": {
+      "schema": { "$ref": "#/entities/Student" },
+      "description": "Collection of registered student profiles."
+    },
+    "/categories/{categoryId}": {
+      "schema": { "$ref": "#/entities/Category" },
+      "description": "Book categories collection."
+    },
+    "/notices/{noticeId}": {
+      "schema": { "$ref": "#/entities/Notice" },
+      "description": "Collection of public announcements and bulletins."
+    },
+    "/issuedBooks/{issuedBookId}": {
+      "schema": { "$ref": "#/entities/IssuedBook" },
+      "description": "Book borrowing transaction log records."
+    },
+    "/activities/{activityId}": {
+      "schema": { "$ref": "#/entities/Activity" },
+      "description": "Collection of dynamic dashboard audit logs."
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/Admin" },
+      "description": "System administrator user registry."
+    }
+  }
+}

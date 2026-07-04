@@ -1,0 +1,6 @@
+{
+  "name": "Library Management Portal",
+  "description": "A modern and responsive library management system dashboard with support for managing books, students, categories, issuing books, and displaying notice boards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
